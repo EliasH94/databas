@@ -5,7 +5,6 @@ if(empty($_GET['id'])){
 }
 $id= $_GET['id'];
 
-$id= $_GET['id'];
 $id = htmlspecialchars($_GET['id']);
 require 'db.php';
 $stmt= $db->prepare("SELECT * FROM product WHERE id=:id");

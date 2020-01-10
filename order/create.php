@@ -18,10 +18,11 @@
         <div class="col-md-3 form-group">
         <input type="submit" value="Skicka beställningen" class="btn btn-success form-control">
         </div>
+        <input type="hidden" name="product_id" value="<?=$id?>">
     </form>
 
 <?php
- if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 $stmt = $db->prepare("INSERT INTO customer (namn, telefonnummer, epostadress, leveransadress) 
 VALUES (:namn, :telefonnummer, :epostadress, :leveransadress)");
@@ -35,13 +36,17 @@ $telefonnummer = $_POST['telefonnummer'];
 $epostadress = $_POST['epostadress'];
 $leveransadress = $_POST['leveransadress'];
 
+
 if(empty($namn) || empty($telefonnummer) || empty($epostadress) || empty($leveransadress)):
 echo '<div class="alert alert-danger">
 <h3>ERROR! empty name</h3></div>';
 return;
 endif;
 
+
 echo "Tack, din order har beställts!";
+
+$product_id= htmlspecialchars($_POST['product_id']);
 
 $stmt->execute();
 }

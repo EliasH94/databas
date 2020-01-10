@@ -5,6 +5,7 @@ $sql= "SELECT
     O.id AS Ordernummer,
     O.date AS Orderdatum,
     O.done AS OK,
+    C.id AS Kundnummer,
     C.name AS Kund,
     C.address AS Adress,
     P.productname AS Produkt 
@@ -33,6 +34,7 @@ echo"<tr>
 while($row= $stmt->fetch(PDO::FETCH_ASSOC)):
     $Ordernummer= $row['Ordernummer'];
     $Orderdatum= $row['Orderdatum'];
+    $Kundnummer= $row['Kundnummer'];
     $Kund= $row['Kund'];
     $Adress= $row['Adress'];
     $Produkt= $row['Produkt'];
@@ -42,11 +44,12 @@ while($row= $stmt->fetch(PDO::FETCH_ASSOC)):
     <td>$Kund</td>
     <td>$Adress</td>
     <td>$Produkt</td>
-    <td><a href='#' class='btn btn-sm btn-outline-success'>Uppdatera</a></td>
-    <td><a href='completion.php?id=". $Ordernummer ." class='btn btn-sm btn-outline-success'>Klar</a></td>
+    <td><a href='update.php?id=".$Kundnummer."' class='btn btn-sm btn-outline-success'>Uppdatera</a></td>
+    <td><a href='completion.php?id=".$Ordernummer."' class='btn btn-sm btn-outline-success'>Klar</a></td>
     </tr>";
 endwhile;
 echo'</table>';
+
 
 require "../footer.php";
 ?>

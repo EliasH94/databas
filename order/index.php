@@ -21,7 +21,7 @@
   
   </form>
 --->
-  <form action="order-process.php" method="post" class="list">
+  <form action="registration.php" method="post" class="list">
         <div class="col-md-4 form-group">
             <input name="name" type="text" required="" class="form-control" placeholder="Namn">
         </div>        
@@ -47,5 +47,5 @@
 
   <?php
   require "order-process.php";
-  require "footer.php";
+  require "../footer.php";
   ?>

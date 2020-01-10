@@ -34,13 +34,13 @@ $stmt->execute();
     } 
     else {
     $row= $stmt->fetch(PDO::FETCH_ASSOC);
-    $id = $row['id'];
-    $message= "<div class='alert alert-success'><h3>Tack $id</h3>";
+    $customer_id = $row['id'];
+    $message= "<div class='alert alert-success'><h3>Tack $customer_id</h3>";
     echo "$message";
 
-    $sql= "INSERT INTO orders (film, customer) VALUES (:film, :customer)";
+    $sql= "INSERT INTO orders (product, customer) VALUES (:product, :customer)";
     $stmt= $db->prepare($sql);
-    $stmt->bindParam(':film', $film_id, PDO::PARAM_INT);
+    $stmt->bindParam(':product', $product_id, PDO::PARAM_INT);
     $stmt->bindParam(':customer', $customer_id, PDO::PARAM_INT);
     $stmt->execute();
 

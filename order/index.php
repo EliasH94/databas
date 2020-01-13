@@ -19,7 +19,11 @@
 ?>
 
   <form action="registration.php" method="post" class="list">
-        <h4>Ny kund</h4>
+        
+        <div class="col-md-4 form-group">
+            <h4>Ny kund</h4>
+        </div>
+
         <div class="col-md-4 form-group">
             <input name="name" type="name" pattern="^\D*$" required="" class="form-control" placeholder="Namn">
         </div>        
@@ -44,13 +48,18 @@
     </form>
 
     <form action="order-process.php" method="post" class="list">
-     
+        <div class="col-md-4 form-group">
+            <h4>Befintlig kund</h4>
+        </div>
+
         <div class="col-md-4 form-group">
             <input name="email" type="email" required="" class="form-control" placeholder="E-post">
         </div>     
+
         <div class="col-md-3 form-group">
         <input type="submit" value="Skicka beställningen" class="btn btn-success form-control">
         </div>
+
         <input type="hidden" name="product_id" value="<?=$id?>">
 
     </form>

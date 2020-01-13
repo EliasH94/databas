@@ -29,9 +29,21 @@ $epostadress = $_POST['email'];
 $leveransadress = $_POST['address'];
 
 $stmt->execute();
-    $message= "<div class='alert alert-warning'>OBS! Felaktigt kundnummer!</div>";
+    $message= "$product_id $email";
     echo "$message";
-    header('Location: order-process.php');
+    
+    
+    $form= "<form name='submitForm' action='order-process.php' method='post' class='list'>";
+    $form.="<input type='hidden' name='product_id' value='$product_id'>";
+    $form.="<input type='hidden' name='email' value='$email'>";
+    $form.="</form>";
+    
+    $form.="<script type='text/javascript'>";
+    $form.="document.submitForm.submit();";
+    $form.="</script>";
+    echo "$form";
+
+    
     } else {
 echo "Kund finns redan";
 }

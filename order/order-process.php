@@ -1,9 +1,9 @@
 <?php
-echo "Nay";
-if($_SERVER['REQUEST_METHOD'] == 'POST'):// Hämta och rensa data från POST-Arrayen
+require "header.php";
+if($_SERVER['REQUEST_METHOD'] == 'POST'):
     $product_id= htmlspecialchars($_POST['product_id']);
     $email= htmlspecialchars($_POST['email']);
-    echo "yay";
+
 require_once 'db.php';
 $sql= "SELECT * FROM customer WHERE email LIKE '$email'";
 $stmt= $db->prepare($sql);
@@ -12,7 +12,8 @@ $stmt->execute();
 
 $row= $stmt->fetch(PDO::FETCH_ASSOC);
     $customer_id = $row['id'];
-    $message= "<div class='alert alert-success'><h3>Tack $customer_id</h3>";
+    $customer_name = $row['name'];
+    $message= "<div class='alert alert-success'><h3>Tack $customer_name</h3>";
     echo "$message";
 
     $sql= "INSERT INTO orders (product, customer) VALUES (:product, :customer)";
@@ -22,4 +23,5 @@ $row= $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->execute();
 
 endif;
+require "footer.php";
 ?>

@@ -11,7 +11,7 @@ $info= '<div class="row">';
 while($row= $stmt->fetch(PDO::FETCH_ASSOC)) { 
     $info.= '<div class="col-sm-4">';
     $info.= '<div class="card">';    
-    $info.= '<img src="bild.jpg" class="card-img-top" alt="bild.jpg">';  
+    $info.= '<img src="image/'. $row['image'] .'" class="card-img-top" alt="">';  
     $info.= '<div class="card-body">';     
     $info.= '<h5 class="card-title">'. $row['productname'] .'</h5>';
     $info.= '<p class="card-text">Pris: '. $row['price'] .'kr.</p>';

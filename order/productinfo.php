@@ -15,6 +15,7 @@ if($stmt->rowCount() > 0){
     $row= $stmt->fetch(PDO::FETCH_ASSOC);
     $productname= $row['productname'];
     $price= $row['price'];
+    $image= $row['image'];
 } else {
     header('Location: index.php');
 }
@@ -22,7 +23,7 @@ if($stmt->rowCount() > 0){
 
 <div class="col-sm-4">
 <div class="card">
-<img src="/shop/bild.jpg" class="card-img-top" alt="bild.jpg">
+<img src="/shop/image/<?php echo "$image"; ?>" class="card-img-top" alt="<?php echo "$productname"; ?>">
 <div class="card-body">
 <h5 class="card-title"> <?php echo $productname ?> </h5>
 <p class="card-text">Pris: <?php echo $price ?> kr.</p>

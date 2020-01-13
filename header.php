@@ -21,6 +21,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="">Hem <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="http://localhost/shop/contact/">Kontakt</a>
+      <a class="nav-item nav-link" href="http://localhost/shop/order/admin/">Admin</a>
       </div>
   </div>
 </nav>

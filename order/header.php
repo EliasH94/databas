@@ -19,8 +19,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="">Hem <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="http://localhost/shop">Hem</a>
       <a class="nav-item nav-link" href="http://localhost/shop/contact/">Kontakt</a>
+      <a class="nav-item nav-link active" href="http://localhost/shop/order/admin/">Admin<span class="sr-only">(current)</span></a>
       </div>
   </div>
 </nav>

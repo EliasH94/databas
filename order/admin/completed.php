@@ -16,7 +16,7 @@ FROM
 WHERE 
 P.id = O.product
 AND C.id = O.customer
-AND O.done ='0'";
+AND O.done ='1'";
 $stmt= $db->prepare($sql);
 $stmt->execute();
 
@@ -27,8 +27,6 @@ echo"<tr>
 <th>Kund</th>
 <th>Adress</th>
 <th>Produkt</th>
-<th>Uppdatera</th>
-<th>Leverad</th>
 </tr>";
 
 while($row= $stmt->fetch(PDO::FETCH_ASSOC)):
@@ -44,12 +42,9 @@ while($row= $stmt->fetch(PDO::FETCH_ASSOC)):
     <td>$Kund</td>
     <td>$Adress</td>
     <td>$Produkt</td>
-    <td><a href='update.php?id=".$Kundnummer."' class='btn btn-sm btn-outline-success'>Uppdatera</a></td>
-    <td><a href='completion.php?id=".$Ordernummer."' class='btn btn-sm btn-outline-success'>Klar</a></td>
     </tr>";
 endwhile;
 echo'</table>';
-echo "<a href='completed.php' class='btn btn-sm btn-outline-primary'>Behandlade Ordrar</a></td>";
 
 
 require "../footer.php";

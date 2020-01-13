@@ -2,7 +2,6 @@
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'):// Hämta och rensa data från POST-Arrayen
     $product_id= htmlspecialchars($_POST['product_id']);
-    $price= htmlspecialchars($_POST['price']);
     $email= htmlspecialchars($_POST['email']);
     $name= htmlspecialchars($_POST['name']);
     $number= htmlspecialchars($_POST['number']);
@@ -22,11 +21,6 @@ $stmt->bindParam(':name', $name);
 $stmt->bindParam(':number' , $number);
 $stmt->bindParam(':email' , $email);
 $stmt->bindParam(':address' , $address);
-
-$namn = $_POST['name']; 
-$telefonnummer = $_POST['number'];
-$epostadress = $_POST['email'];
-$leveransadress = $_POST['address'];
 
 $stmt->execute();
     $message= "$product_id $email";

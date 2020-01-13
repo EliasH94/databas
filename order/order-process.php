@@ -10,6 +10,7 @@ $stmt= $db->prepare($sql);
 $stmt->bindParam('email', $email, PDO::PARAM_INT);
 $stmt->execute();
 
+if($stmt->rowCount() == 1) {
 $row= $stmt->fetch(PDO::FETCH_ASSOC);
     $customer_id = $row['id'];
     $customer_name = $row['name'];
@@ -21,7 +22,10 @@ $row= $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->bindParam(':product', $product_id, PDO::PARAM_INT);
     $stmt->bindParam(':customer', $customer_id, PDO::PARAM_INT);
     $stmt->execute();
-
+} else {
+    $message= "<div class='alert alert-warning'><h3>Kund finns ej</h3>";
+    echo "$message";
+}
 endif;
 require "footer.php";
 ?>

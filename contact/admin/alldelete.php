@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 $sql = "TRUNCATE TABLE contacts";
 $stmt = $db->prepare($sql);

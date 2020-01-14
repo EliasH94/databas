@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../db.php";
 
 $id = $_GET['id'];
 $sql = "DELETE FROM contacts WHERE id = :id"; 

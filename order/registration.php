@@ -23,10 +23,7 @@ $stmt->bindParam(':email' , $email);
 $stmt->bindParam(':address' , $address);
 
 $stmt->execute();
-    $message= "$product_id $email";
-    echo "$message";
-    
-    
+            
     $form= "<form name='submitForm' action='order-process.php' method='post' class='list'>";
     $form.="<input type='hidden' name='product_id' value='$product_id'>";
     $form.="<input type='hidden' name='email' value='$email'>";
